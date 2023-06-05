@@ -1,0 +1,39 @@
+---
+layout: page
+multilingual: false
+---
+:imagesdir: \images\
+
+= Портфолио
+
+Здесь я собрала несколько интересных проектов и документов, над которыми работала.
+
+== Manage(one) Docs
+
+В Manage(one) я разрабатываю документацию для двух продуктов: Doc.one и Bot.one.
+
+.Для каждого из них мы создаем документы:
+* html-справка: link:https://help.doc.one/[help.doc.one] и link:https://help.bot.one/[help.bot.one].
+* pdf-документы по шаблону компании: link:user.pdf[Руководство пользователя]; link:techtask.pdf[Техническое задание], link:architecture.pdf[Архитектурное решение].
+* docx-документы по ГОСТ: link:techtask_gost.docx[Техническое задание].
+* внутренняя документация в Confluence.
+* описание link:https://manual.bot.one/swagger[API в Swagger].
+
+Общая схема документации на проекте выглядит так:
+
+image::pravotech_docs.png[Схема документации pravotech]
+
+.Планы:
+* Улучшение справки: интеграция с ботом, поиск, помощь ChatGPT.
+* Развернутая API-документация, включая общие разделы, use cases и формирование pdf-мануала по API.
+
+== Xsolla Summer School
+.В 2021 году я участвовала в **Xsolla Summer School** на потоке **Documentation (профильный)**. В качестве итогового проекта нужно было написать инструкцию по покупке карты Steam. Я получила высокий балл за эту работу, поэтому тоже публикую ее здесь:
+* link:steam.pdf[Подарочная карта Steam].
+
+## Advanced Technical Writing by Documentat.io
+.В 2022 году я прошла link:https://documentat.io/courses/advanced-techwriting/[курсы продвинутых технических] писателей у Семёна Факторовича и link:https://documentat.io[Documentat.io]. На курсах я написала несколько инструкций, вот несколько из них:
+* link:geolocation.pdf[Инструменты геолокации].
+* link:LocationServices.pdf[LocationServices].
+* link:Acme_ABC-4242.pdf[Перепрошивка приставки кабельного телевидения Acme ABC-4242].
+* link:tech_doc_testing.pdf[Краткая инструкция по вычитке технических документов].
