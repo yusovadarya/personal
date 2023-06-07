@@ -1,5 +1,13 @@
 baseurl = "https://dymbrylova.netlify.app"
 title = "Darya Dymbrylova"
+theme = "hugo-theme-cleanwhite"
+languageCode = "ru-ru"
+# Enable comments by entering your Disqus shortname
+disqusShortname = ""
+googleAnalytics = ""
+preserveTaxonomyNames = true
+paginate = 5 #frontpage pagination
+hasCJKLanguage = true
 
 [security]
 enableInlineShortcodes = false

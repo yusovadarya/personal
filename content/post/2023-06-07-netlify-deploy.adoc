@@ -1,0 +1,91 @@
+---
+layout:     post
+title:      "Host on Netlify"
+subtitle:   "Asciidoc+HUGO+Git+Netlify=?"
+description: "Как опубликовать ваш сайт на Netlify"
+date: 2023-06-07
+author:     "Dasha"
+image: "/images/2023-06-07_153322.png"
+showonlyimage: true
+tags:
+    - DocAsCode
+URL: "/2023/06/07/netlify/"
+categories: [ DocAsCode ]
+---
+:imagesdir: \images\
+
+= Host on Netlify
+
+== Вводные
+
+У меня был готов проект этого сайта и мне нужно было его опубликовать.
+
+.Какой стек я использовала:
+* Исходники написаны в .adoc.
+* Генерация сайта -- Hugo.
+* Репозиторий -- GitHub.
+
+Предстояло выбрать инструмент для публикации сайта.
+
+.Я выбрала Netlify, потому что:
+. Уже работала с ним.
+. Он условно-бесплатный.
+
+Итак, восстановила свой аккаунт, подключила репозиторий, добавила переменные и запустила деплой. Подробно описывать не буду, все есть здесь: link:https://gohugo.io/hosting-and-deployment/hosting-on-netlify/[Host on Netlify]
+
+.Укажу только переменные, которые я добавила:
+* `HUGO_VERSION`
+* `RUBY_VERSION`
+
+== Проблема чтения AsciiDoc
+
+Сайт никак не хотел запускаться и выдавал ошибку:
+
+----
+ERROR 2023/06/05 13:00:09 asciidoctor not found in $PATH: Please install.
+Leaving AsciiDoc content unrendered.
+----
+
+На самом деле, Asciidoctor установлен и в PATH все прописано верно. Это происходит потому, что Netlify умеет читать Markdown из коробки, а для AsciiDoc ему нужно добавить хелперы. Я добавила root  проекта файл Gemfile (просто, без расширений) с содержимым:
+
+----
+# frozen_string_literal: true
+
+source 'https://rubygems.org'
+gem 'asciidoctor'
+
+# gem "rails"
+----
+
+== Проблема политики безопасности Hugo
+
+Теперь Netlify умеет читать AsciiDoc, но ему не дает это сделать политика безопасности Hugo. В логах деплоя вот такая ошибка:
+
+----
+Error: error building site: "/opt/build/repo/content/posts/my-second-post.adoc:1:1": access denied: "asciidoctor" is not whitelisted in policy "security.exec.allow";
+----
+
+Не все темы в Hugo поддерживают Asciidoc. У меня как раз такая -- и она не включает Asciidoctor в политику безопасности Hugo по умолчанию. И нам нужно ее прописать.
+
+Открываем файл `hugo.toml` и добавляем в него следующий текст:
+
+[source, toml]
+----
+[security]
+enableInlineShortcodes = false
+
+[security.exec]
+allow = ["^dart-sass-embedded$", "^go$", "^npx$", "^postcss$", "^asciidoctor$"]
+osEnv = ["(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM|RUBYLIB)$"]
+
+[security.funcs]
+getenv = ["^HUGO_"]
+
+[security.http]
+methods = ["(?i)GET|POST"]
+urls = [".*"]
+----
+
+== Ehjdgfd
+
+Ура! Теперь сайт опубликован - в логах нет ошибок. 
