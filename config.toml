@@ -1,4 +1,4 @@
-baseurl = "https://example.com"
+baseurl = "https://dymbrylova.netlify.app"
 title = "Darya Dymbrylova"
 theme = "hugo-theme-cleanwhite"
 languageCode = "ru-ru"
