@@ -1,0 +1,62 @@
+---
+layout:     post
+title:      "Images in HUGO"
+subtitle:   "HUGO v0.113.0 images bug with Dot theme"
+description: "Перестали отображаться изображения в хелпе"
+date: 2023-06-15
+author:     "Dasha"
+image: "/images/2023-06-15_102316.png"
+showonlyimage: true
+tags:
+    - DocAsCode
+    - Troubleshooting
+URL: "/2023/06/15/hugo/"
+categories: [ DocAsCode ] [Troubleshooting]
+---
+:imagesdir: \images\
+
+= Images in HUGO
+
+== Проблема
+
+После обновления HUGO до версии v0.113.0 перестали отображаться изображения в html-справке. Все скрины, гифки, диаграммы, кнопки.
+
+Справки используют тему link:https://github.com/themefisher/dot-hugo[Dot].
+
+Изображения лежат в папках:
+----
+content/
+|---images/
+    |---buttons/
+    |---diagrams/
+----
+
+Для каждой страницы или дока указан атрибут `:imagesdir: \images\`.
+
+Документы PDF и DOCX при этом формируются нормально, а вот html-справка не отображает картинки, так как не находит их.
+
+
+== Решение
+
+Почему-то HUGO не видит папки в `content`, если в них нет файла `index`.
+
+Я добавила в каждую папку и подпапку с изображениями (`images`, `images/buttons`, `images/diagrams`) файл `_index.ru.md` с содержимым (для примера):
+
+----
+---
+title: "Диаграммы"
+date:
+lastmod:
+icon:
+description: "Файл добавлен, чтобы прогружались картинки"
+type : "diagrams"
+weight: 100
+draft: false
+---
+
+Файл добавлен, чтобы прогружались картинки.
+----
+
+Сейчас картинки отображаются.
+
+image::2023-06-15_102107.png[Картинки отображаются]

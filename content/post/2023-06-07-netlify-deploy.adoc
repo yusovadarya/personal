@@ -9,8 +9,9 @@ image: "/images/2023-06-07_153322.png"
 showonlyimage: true
 tags:
     - DocAsCode
+    - Troubleshooting
 URL: "/2023/06/07/netlify/"
-categories: [ DocAsCode ]
+categories: [ DocAsCode ] [Troubleshooting]
 ---
 :imagesdir: \images\
 
