@@ -32,7 +32,7 @@ image::pravotech_docs.png[Схема документации pravotech]
 * link:steam.pdf[Подарочная карта Steam].
 
 ## Advanced Technical Writing by Documentat.io
-.В 2022 году я прошла link:https://documentat.io/courses/advanced-techwriting/[курсы продвинутых технических] писателей у Семёна Факторовича и link:https://documentat.io[Documentat.io]. На курсах я написала несколько инструкций, вот несколько из них:
+.В 2022 году я прошла link:https://documentat.io/courses/advanced-techwriting/[курсы продвинутых технических] писателей у Семёна Факторовича и link:https://documentat.io[Documentat.io]. На курсах я написала несколько инструкций, вот некоторые из них:
 * link:geolocation.pdf[Инструменты геолокации].
 * link:LocationServices.pdf[LocationServices].
 * link:Acme_ABC-4242.pdf[Перепрошивка приставки кабельного телевидения Acme ABC-4242].
