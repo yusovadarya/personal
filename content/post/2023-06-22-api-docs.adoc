@@ -5,7 +5,7 @@ subtitle:   "Как автоматизировать написание API-до
 description: "Описание моего опыта написания автоматизации документации на API Bot.one"
 date: 2023-06-15
 author:     "Dasha"
-image: "/images/2023-06-15_102316.png"
+image: "/images/AdobeStock_466985843.jpeg"
 showonlyimage: true
 tags:
     - DocAsCode
@@ -41,7 +41,7 @@ image::2023-06-22_142610.png[Описание API Bot.one в Swagger]
 
 Итак, первый этап автоматизации -- генерация файла .adoc из спецификации .json (которая генерируется из комментариев в коде).
 
-Для генерации использую link::https://github.com/openapi-contrib/openapi3-generator[OpenAPI 3 Generator]. На вход генератор принимает .yaml, на выход - в оригинале markdown. link::https://github.com/fiddlededee[Николай Поташников] добавил в него шаблон asciidoctor.
+Для генерации использую link:https://github.com/openapi-contrib/openapi3-generator[OpenAPI 3 Generator]. На вход генератор принимает .yaml, на выход - в оригинале markdown. link:https://github.com/fiddlededee[Николай Поташников] добавил в него шаблон asciidoctor.
 
 После пробной попытки понимаю, что OG очень здорово генерирует документ, но шаблон меня не совсем устраивает.
 
