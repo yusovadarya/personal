@@ -5,7 +5,7 @@ subtitle:   "Asciidoc+HUGO+Git+Netlify=?"
 description: "Как опубликовать ваш сайт на Netlify"
 date: 2023-06-07
 author:     "Dasha"
-image: "/images/2023-06-07_153322.png"
+image: "/images/netlify_banner_07.07.2023.png"
 showonlyimage: true
 tags:
     - DocAsCode
