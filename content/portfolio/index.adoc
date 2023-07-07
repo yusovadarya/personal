@@ -17,7 +17,7 @@ multilingual: false
 * pdf-документы по шаблону компании: link:user.pdf[Руководство пользователя]; link:techtask.pdf[Техническое задание], link:architecture.pdf[Архитектурное решение].
 * docx-документы по ГОСТ: link:techtask_gost.docx[Техническое задание].
 * внутренняя документация в Confluence.
-* описание link:https://manual.bot.one/swagger[API в Swagger].
+* описание link:https://manual.bot.one/swagger[API в Swagger] и link:api.pdf[pdf-мануал по работе с API].
 
 Общая схема документации на проекте выглядит так:
 
