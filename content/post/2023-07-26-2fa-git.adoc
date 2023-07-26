@@ -1,0 +1,87 @@
+---
+layout:     post
+title:      "Gitlab 2FA Troubleshooting"
+subtitle:   "Проблемы при подключении 2FA на Gitlab"
+description: "Кратко описала проблемы, которые возникали у меня, и их решения"
+date: 2023-07-26
+author:     "Dasha"
+image: "/images/AdobeStock_466985843.jpeg"
+showonlyimage: true
+tags:
+    - DocAsCode
+URL: "/2023/07/26/2fa/"
+categories: [ DocAsCode ]
+---
+:imagesdir: \images\
+
+= Gitlab 2FA Troubleshooting
+
+Допустим, вы настроили двухфакторную аутентификацию на Гитлабе и создали свой Access token.
+
+---
+
+*Проблема 1*
+
+При пуше на гитлаб может возникнуть ошибка:
+
+----
+remote: HTTP Basic: Access denied. The provided password or token is incorrect or your account has 2FA enabled and you must use a personal access token instead of a password.
+----
+
+*Решение:*
+
+.Проверьте, чтобы в настройках токена были указаны права (оба):
+* read_repository
+* write_repository
+
+image::2023-07-26_122845.png[Project Access Tokens Scopes]
+
+---
+
+*Проблема 2*
+
+Потом может возникнуть ошибка:
+
+----
+remote: You are not allowed to push code to this project.
+fatal: unable to access 'https://gitlab.pravo.tech/techwriters/docone.git/': The requested URL returned error: 403
+----
+
+*Решение:*
+
+В конфиге гита остались старые данные для подключения. Нужно изменить их на новые:
+
+----
+git config user.name 'new name'
+git config user.password 'new password'
+----
+
+или глобально:
+
+----
+git config --global user.name 'new name'
+git config --global user.password 'new password'
+----
+
+Чтобы проверить, все ли записалось:
+
+----
+git config --list
+----
+
+*Проблема 3*
+
+После может возникнуть еще одна ошибка типа:
+
+----
+remote: GitLab: You cannot push commits for 'd.dymbrylova@pravo.tech'. You can only push commits if the committer email is one of your own verified emails.
+----
+
+*Решение:*
+
+.Нужно изменить свойства репозитория на Гитлабе:
+. *Settings* -- *Repository* -- *Push rules*.
+. Нажать *Expand*.
+. Снять флаг *Reject unverified users*.
+
+image::2023-07-26_132134.png[Push rules]
